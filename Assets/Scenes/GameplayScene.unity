@@ -866,6 +866,7 @@ GameObject:
   - component: {fileID: 983864129}
   - component: {fileID: 983864128}
   - component: {fileID: 983864132}
+  - component: {fileID: 983864133}
   m_Layer: 3
   m_Name: Player Character
   m_TagString: Untagged
@@ -901,6 +902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logic: {fileID: 0}
+  isAlive: 1
 --- !u!50 &983864129
 Rigidbody2D:
   serializedVersion: 4
@@ -1061,6 +1063,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &983864133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983864126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0fe605c9bbcfcd4c9a38937f4c9f9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temporaryLayerName: Phantom
+  keyToPress: 32
 --- !u!1 &1296175140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,7 +1090,7 @@ GameObject:
   - component: {fileID: 1296175141}
   m_Layer: 3
   m_Name: Obstacles
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
