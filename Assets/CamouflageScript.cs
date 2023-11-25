@@ -7,12 +7,14 @@ public class CamouflageScript : MonoBehaviour
 {
     public string temporaryLayer = "Phantom";
     public KeyCode camouflageKey = KeyCode.X;
+
     public float timeToLive = 5f;
-    public float timeToRecharge = 10f;
+    public float timeToRecharge = 5f;
     public float timeToRechargeLeft = 0f;
     public bool isCamouflaged = false;
     public bool isRecharging = false;
     private int originalLayer;
+    
     public SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
@@ -38,7 +40,7 @@ public class CamouflageScript : MonoBehaviour
         {
             if (Input.GetKeyDown(camouflageKey))
             {
-                if (!isCamouflaged)
+                if (!isCamouflaged && !isRecharging)
                 {
                     isCamouflaged = true;
                     StartCoroutine(DisableCollisions());
@@ -64,6 +66,14 @@ public class CamouflageScript : MonoBehaviour
 
     IEnumerator Recharge()
     {
+        // Recharge for 5 seconds
+        Debug.Log($"Recharging + {isRecharging}");
+
+        timeToRechargeLeft = timeToRecharge;
+        if (isRecharging)
+        {
+            yield break;
+        }
         yield return new WaitForSeconds(timeToRecharge);
         isRecharging = false;
     }
