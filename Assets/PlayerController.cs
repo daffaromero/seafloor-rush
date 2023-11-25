@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
-    private float _speed = 15f;
+    private float _speed = 600f;
 
     private void Awake()
     {
