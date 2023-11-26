@@ -883,8 +883,8 @@ Transform:
   m_GameObject: {fileID: 983864126}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 571, y: 610, z: 0}
-  m_LocalScale: {x: 40, y: 40, z: 40}
+  m_LocalPosition: {x: 216, y: 163, z: 0}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -903,6 +903,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logic: {fileID: 0}
   isAlive: 1
+  minX: 216
+  maxX: 914
+  minY: 164
+  maxY: 1941
 --- !u!50 &983864129
 Rigidbody2D:
   serializedVersion: 4
@@ -1006,7 +1010,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 50826a45fe0707d479b2ef0026456405, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 22bd59ce60fe5a646a57537b0a07fb89, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1075,8 +1079,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fe605c9bbcfcd4c9a38937f4c9f9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temporaryLayerName: Phantom
-  keyToPress: 32
+  temporaryLayer: Phantom
+  camouflageKey: 120
+  timeToLive: 5
+  timeToRecharge: 5
+  timeToRechargeLeft: 0
+  isCamouflaged: 0
+  isRecharging: 0
+  spriteRenderer: {fileID: 0}
 --- !u!1 &1296175140
 GameObject:
   m_ObjectHideFlags: 0

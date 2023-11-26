@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     private float _speed = 600f;
     public LogicScript logic;
     public bool isAlive = true;
+    public float minX;
+    public float maxX;
+    public float minY;
+    public float maxY;
 
     private void Awake()
     {
@@ -22,10 +26,18 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext ctx)
     {
-        if (isAlive)
-        {
-            _rigidbody.velocity = ctx.ReadValue<Vector2>() * _speed;
-        }
+        Vector2 moveInput = ctx.ReadValue<Vector2>();
+        Vector2 newPosition = _rigidbody.position + moveInput * _speed * Time.fixedDeltaTime;
+
+        // Get the screen boundaries in world coordinates
+        Vector2 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+
+
+        // Clamp the player's position within the screen boundaries
+        newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
+        newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
+
+        _rigidbody.MovePosition(newPosition);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
