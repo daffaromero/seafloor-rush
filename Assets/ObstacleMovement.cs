@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleMovement : MonoBehaviour
 {
     public float moveSpeed;
-    public float despawnZone = -120;
+    public float despawnZone = -1200;
 
     // Start is called before the first frame update
     void Start()

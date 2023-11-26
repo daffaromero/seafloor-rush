@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D _rigidbody;
+    private Rigidbody2D rb;
     private float _speed = 600f;
     public LogicScript logic;
     public bool isAlive = true;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
@@ -26,17 +26,28 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext ctx)
     {
-        Vector2 moveInput = ctx.ReadValue<Vector2>();
-        Vector2 newPosition = _rigidbody.position + moveInput * _speed * Time.fixedDeltaTime;
+        if (isAlive)
+        {
+            rb.velocity = ctx.ReadValue<Vector2>() * _speed;
+        }
+    }
 
-        newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
-        newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
-
-        _rigidbody.MovePosition(newPosition);
+    private void Update()
+    {
+        transform.position = new Vector3(
+            Mathf.Clamp(transform.position.x, minX, maxX), 
+            Mathf.Clamp(transform.position.y, minY, maxY), 
+            transform.position.z);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Does not happen when the player collides with the Phantom layer
+        if (collision.gameObject.layer == 8)
+        {
+            return;
+        }
+
         logic.gameOver();
         isAlive = false;
     }

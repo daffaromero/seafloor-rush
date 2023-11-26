@@ -377,4 +377,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 300
-  despawnZone: -120
+  despawnZone: -1500
