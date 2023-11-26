@@ -61,9 +61,11 @@ public class CamouflageScript : MonoBehaviour
         isCamouflaged = true;
         StartCoroutine(DisableCollisions());
         yield return new WaitForSeconds(timeToLive);
+
         spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         gameObject.layer = originalLayer;
         isCamouflaged = false;
+        isRecharging = true;
         StartCoroutine(Recharge());
     }
 
@@ -77,11 +79,11 @@ public class CamouflageScript : MonoBehaviour
     private IEnumerator Recharge()
     {
         timeToRechargeLeft = timeToRecharge;
-        while (timeToRechargeLeft > 0)
+        if (isRecharging)
         {
-            yield return null;
-            timeToRechargeLeft -= Time.deltaTime;
+            yield break;
         }
+        yield return new WaitForSeconds(timeToRecharge);
         isRecharging = false;
     }
 }

@@ -1062,6 +1062,10 @@ MonoBehaviour:
         m_CallState: 1
     m_ActionId: c35ce361-6753-4044-ab23-de010599a2c0
     m_ActionName: Player/New action[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e8a2795d-a2d3-4661-b16d-efcc7eaca5e0
+    m_ActionName: Player/New action1
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1080,12 +1084,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   temporaryLayer: Phantom
-  camouflageKey: 120
+  camouflageAction:
+    m_Name: Camouflage
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 08880f44-8091-428f-ae75-9ddae1fbd7e2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   timeToLive: 5
   timeToRecharge: 5
-  timeToRechargeLeft: 0
-  isCamouflaged: 0
-  isRecharging: 0
   spriteRenderer: {fileID: 0}
 --- !u!1 &1296175140
 GameObject:
@@ -1491,6 +1500,7 @@ GameObject:
   - component: {fileID: 1999903898}
   - component: {fileID: 1999903897}
   - component: {fileID: 1999903896}
+  - component: {fileID: 1999903899}
   m_Layer: 0
   m_Name: ButtonR
   m_TagString: Untagged
@@ -1612,6 +1622,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999903894}
   m_CullTransparentMesh: 1
+--- !u!114 &1999903899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999903894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ControlPath: <Gamepad>/buttonSouth
 --- !u!1 &2031226732
 GameObject:
   m_ObjectHideFlags: 0
