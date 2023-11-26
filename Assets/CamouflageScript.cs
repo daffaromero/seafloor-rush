@@ -1,31 +1,48 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CamouflageScript : MonoBehaviour
 {
     public string temporaryLayer = "Phantom";
-    public KeyCode camouflageKey = KeyCode.X;
+    public InputAction camouflageAction;
 
     public float timeToLive = 5f;
     public float timeToRecharge = 5f;
-    public float timeToRechargeLeft = 0f;
-    public bool isCamouflaged = false;
-    public bool isRecharging = false;
+    private float timeToRechargeLeft = 0f;
+    private bool isCamouflaged = false;
+    private bool isRecharging = false;
     private int originalLayer;
-    
+
     public SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         originalLayer = gameObject.layer;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent <SpriteRenderer>();
+
+        // Set up the Input System action
+        camouflageAction = new InputAction(binding: "<Gamepad>/buttonSouth"); // Customize the binding according to your needs
+        camouflageAction.performed += ctx => OnCamouflageAction();
+        camouflageAction.Enable();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
+    {
+        // Disable the Input System action when the script is destroyed
+        camouflageAction.Disable();
+    }
+
+    private void OnCamouflageAction()
+    {
+        if (!isCamouflaged && !isRecharging)
+        {
+            StartCoroutine(ActivateCamouflage());
+        }
+    }
+
+    private void Update()
     {
         if (isRecharging)
         {
@@ -36,45 +53,35 @@ public class CamouflageScript : MonoBehaviour
                 isRecharging = false;
             }
         }
-        else
-        {
-            if (Input.GetKeyDown(camouflageKey))
-            {
-                if (!isCamouflaged && !isRecharging)
-                {
-                    isCamouflaged = true;
-                    StartCoroutine(DisableCollisions());
-                }
-            }
-        }   
+        // No need to check for camouflage key in Update
     }
 
-    IEnumerator DisableCollisions()
+    private IEnumerator ActivateCamouflage()
     {
-        gameObject.layer = LayerMask.NameToLayer(temporaryLayer);
-        spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
         isCamouflaged = true;
-        isRecharging = false;
+        StartCoroutine(DisableCollisions());
         yield return new WaitForSeconds(timeToLive);
-
         spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         gameObject.layer = originalLayer;
         isCamouflaged = false;
-        isRecharging = true;
         StartCoroutine(Recharge());
     }
 
-    IEnumerator Recharge()
+    private IEnumerator DisableCollisions()
     {
-        // Recharge for 5 seconds
-        Debug.Log($"Recharging + {isRecharging}");
+        gameObject.layer = LayerMask.NameToLayer(temporaryLayer);
+        spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+        yield return new WaitForSeconds(timeToLive);
+    }
 
+    private IEnumerator Recharge()
+    {
         timeToRechargeLeft = timeToRecharge;
-        if (isRecharging)
+        while (timeToRechargeLeft > 0)
         {
-            yield break;
+            yield return null;
+            timeToRechargeLeft -= Time.deltaTime;
         }
-        yield return new WaitForSeconds(timeToRecharge);
         isRecharging = false;
     }
 }
