@@ -5,7 +5,7 @@ using UnityEngine;
 public class RepeatBackground : MonoBehaviour
 {
     Vector3 startPos;
-    float repeatHeight = 2160;
+    float repeatHeight = 4320;
     // Start is called before the first frame update
     void Start()
     {
