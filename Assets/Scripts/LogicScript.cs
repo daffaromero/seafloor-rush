@@ -6,24 +6,41 @@ using UnityEngine.UI;
 
 public class LogicScript : MonoBehaviour
 {
-    public int playerScore;
-    public Text scoreText;
+    #region Singleton
+
+    public static LogicScript Instance;
+
+    private void Awake() {
+        if(Instance == null) Instance = this;
+    }
+    #endregion
+    public float playerScore = 0f;
+    public string scoreText;
     public GameObject gameOverScreen;
 
+    private bool inGameOverState = false;
+
     [ContextMenu("Increase Score")]
-    public void addScore(int scoreToAdd)
+    public string addScore()
     {
-        playerScore = playerScore + scoreToAdd;
-        scoreText.text = playerScore.ToString();
+        if (!inGameOverState)
+        {
+            playerScore = playerScore + Time.deltaTime;
+        }
+
+        return scoreText = Mathf.RoundToInt(playerScore).ToString();
     }
 
     public void restartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        playerScore = 0;
+        inGameOverState = false;
     }
 
     public void gameOver()
     {
         gameOverScreen.SetActive(true);
+        inGameOverState = true;
     }
 }
