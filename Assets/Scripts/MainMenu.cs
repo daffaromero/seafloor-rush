@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject playScreen;
-    public void PlayGame()
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(sceneName);
     }
+
     public void QuitGame()
     {
         Application.Quit();
