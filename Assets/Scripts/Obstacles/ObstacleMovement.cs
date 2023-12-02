@@ -17,11 +17,5 @@ public class ObstacleMovement : MonoBehaviour
     void Update()
     {
         transform.position = transform.position + (Vector3.down * moveSpeed) * Time.deltaTime;
-        
-        if (transform.position.y < despawnZone)
-        {
-            Debug.Log("Obstacle despawned");
-            Destroy(gameObject);
-        }
     }
 }

@@ -40,7 +40,7 @@ public class LogicScript : MonoBehaviour
         if(scoreRound > PlayerPrefs.GetInt("HighScore", 0))
         {
             PlayerPrefs.SetInt("HighScore", scoreRound);
-            uim.UpdateHighScoreText();
+            // uim.UpdateHighScoreText();
         }
     }
 
