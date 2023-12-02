@@ -570,7 +570,7 @@ Transform:
   m_GameObject: {fileID: 373172696}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 92.53206, y: 2235.3447, z: -192.11858}
+  m_LocalPosition: {x: 0, y: 1600, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -601,7 +601,7 @@ Transform:
   m_GameObject: {fileID: 397899441}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -92.53206, y: -735.3448, z: 192.11858}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1870,7 +1870,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 100, y: 3000}
+  m_Size: {x: 10, y: 3200}
   m_EdgeRadius: 0
 --- !u!4 &1206598768
 Transform:
@@ -1881,7 +1881,7 @@ Transform:
   m_GameObject: {fileID: 1206598764}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -607.46796, y: 1035.3447, z: -192.11858}
+  m_LocalPosition: {x: -800, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2094,7 +2094,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 100, y: 3000}
+  m_Size: {x: 10, y: 3200}
   m_EdgeRadius: 0
 --- !u!4 &1348585127
 Transform:
@@ -2105,7 +2105,7 @@ Transform:
   m_GameObject: {fileID: 1348585123}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 792.53204, y: 1035.3447, z: -192.11858}
+  m_LocalPosition: {x: 800, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2427,6 +2427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a620c0c764c34ceaa0a2f5885dc2cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playScreen: {fileID: 0}
 --- !u!1 &1559140627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2892,7 +2893,7 @@ Transform:
   m_GameObject: {fileID: 66924120424349611}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 92.53206, y: -464.6552, z: -192.11858}
+  m_LocalPosition: {x: 0, y: -1400, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2941,7 +2942,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1600, y: 100}
+  m_Size: {x: 1600, y: 200}
   m_EdgeRadius: 0
 --- !u!50 &7551451190618906077
 Rigidbody2D:

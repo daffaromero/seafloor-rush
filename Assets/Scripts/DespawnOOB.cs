@@ -18,8 +18,7 @@ public class DespawnOOB : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // If the object that collided with this object is tagged as "Bullet"
-            Debug.Log("Object despawned");
+            Debug.Log("Object collided");
             // Destroy the object
             Destroy(collision.gameObject);
     }
