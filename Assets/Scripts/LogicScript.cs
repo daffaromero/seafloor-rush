@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class LogicScript : MonoBehaviour
 {
@@ -15,9 +16,10 @@ public class LogicScript : MonoBehaviour
     }
     #endregion
     public float playerScore = 0f;
+    public int scoreRound;
+    UIManagerScript uim;
     public string scoreText;
     public GameObject gameOverScreen;
-
     private bool inGameOverState = false;
 
     [ContextMenu("Increase Score")]
@@ -26,9 +28,20 @@ public class LogicScript : MonoBehaviour
         if (!inGameOverState)
         {
             playerScore = playerScore + Time.deltaTime;
+            scoreRound = Mathf.RoundToInt(playerScore);
+            CheckHighScore();
         }
 
-        return scoreText = Mathf.RoundToInt(playerScore).ToString();
+        return scoreText = scoreRound.ToString();
+    }
+
+    public void CheckHighScore() 
+    {
+        if(scoreRound > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", scoreRound);
+            uim.UpdateHighScoreText();
+        }
     }
 
     public void restartGame()
