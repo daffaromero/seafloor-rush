@@ -24,7 +24,6 @@ public class ObstacleController : MonoBehaviour
         var Randomize = Random.Range(_minSpawn, _maxSpawn);
         var RandomPosition = new Vector3(Randomize, transform.position.y);
 
-        GameObject gameObject = Instantiate(_obstaclePrefab[Random.Range(0, _obstaclePrefab.Length)],
-            RandomPosition, Quaternion.identity);
+        Instantiate(_obstaclePrefab[Random.Range(0, _obstaclePrefab.Length)], RandomPosition, Quaternion.identity);
     }
 }
