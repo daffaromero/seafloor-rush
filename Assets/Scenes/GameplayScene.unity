@@ -217,6 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 112883330}
   - component: {fileID: 112883331}
+  - component: {fileID: 112883332}
   m_Layer: 3
   m_Name: RotatePoint
   m_TagString: Untagged
@@ -256,6 +257,20 @@ MonoBehaviour:
   bulletTransform: {fileID: 43989255}
   canShoot: 1
   cooldown: 0.1
+--- !u!114 &112883332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112883329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2fa2acf6433054e8aba78379e802fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 5271748154401731452, guid: 22f09d0159c63d14fba92fd5d2083c99, type: 3}
+  inkPrefab: {fileID: 5271748154401731452, guid: 431c2546330923d4998e832fc081f04f, type: 3}
 --- !u!1 &130042788
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,4 +56,9 @@ public class Shooting : MonoBehaviour
     {
         Instantiate(bullet, bulletTransform.position, transform.rotation);
     }
+
+    public void SetBullet(GameObject bulletPrefab)
+    {
+        bullet = bulletPrefab;
+    }
 }
