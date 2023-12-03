@@ -66,11 +66,17 @@ public class LogicScript : MonoBehaviour
 
     void HandlePredatorKilled(Predator pred)
     {
-        if (predators.Remove(pred))
+        if (predators.Contains(pred))
         {
             predatorKillCount++;
+            predators.Remove(pred);
             UpdatePredatorKillCount();
         }
+    }
+
+    public void AddPredatorToList(Predator pred)
+    {
+        predators.Add(pred);
     }
 
     public void UpdatePredatorKillCount()

@@ -7,6 +7,11 @@ public class Predator : MonoBehaviour
 {
     public static event Action<Predator> OnPredatorKilled;
     [SerializeField] float health, maxHealth = 3f;
+    private void Awake()
+    {
+        LogicScript.Instance.AddPredatorToList(this);
+    }
+
     void Start()
     {
         health = maxHealth;
@@ -21,6 +26,7 @@ public class Predator : MonoBehaviour
             // Destroy the predator if it has no health left
             Destroy(gameObject);
             OnPredatorKilled?.Invoke(this);
+            Debug.Log("Predator killed!");
         }
     }   
 }

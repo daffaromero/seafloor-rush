@@ -13,11 +13,14 @@ public class Shooting : MonoBehaviour
     public bool canShoot;
     private float shootTimer;
     public float cooldown;
-   
+
+    private CamouflageScript camouflageScript;
+
     // Start is called before the first frame update
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        camouflageScript = GameObject.FindGameObjectWithTag("Player").GetComponent<CamouflageScript>();
     }
 
     // Update is called once per frame
@@ -42,7 +45,7 @@ public class Shooting : MonoBehaviour
            }
        }
 
-       if (Input.GetMouseButtonDown(0) && canShoot)
+       if (Input.GetMouseButtonDown(0) && canShoot && !camouflageScript.CamouflagedState())
        {
            canShoot = false;
            Shoot();

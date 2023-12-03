@@ -10,11 +10,16 @@ public class CamouflageScript : MonoBehaviour
     public float timeToLive = 5f;
     public float timeToRecharge = 5f;
     private float timeToRechargeLeft = 0f;
-    private bool isCamouflaged = false;
+    public bool isCamouflaged = false;
     private bool isRecharging = false;
     private int originalLayer;
 
     public SpriteRenderer spriteRenderer;
+
+    public bool CamouflagedState()
+    {
+        return isCamouflaged;
+    }
 
     // Start is called before the first frame update
     void Start()
