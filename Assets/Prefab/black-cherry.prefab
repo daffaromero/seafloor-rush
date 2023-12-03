@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1573182770192351077}
   - component: {fileID: 6528989247759863794}
   - component: {fileID: -2732664544848179074}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: black-cherry
   m_TagString: Untagged
   m_Icon: {fileID: 0}

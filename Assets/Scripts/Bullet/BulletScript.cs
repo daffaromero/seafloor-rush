@@ -27,5 +27,16 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Destroy the bullet when it hits an enemy
+        if (collision.gameObject.TryGetComponent<Predator>(out Predator predatorComponent))
+        {
+            predatorComponent.TakeDamage(1);
+        }
+        Destroy(gameObject);
     }
 }
