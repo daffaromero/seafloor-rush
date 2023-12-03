@@ -28,5 +28,16 @@ public class Predator : MonoBehaviour
             OnPredatorKilled?.Invoke(this);
             Debug.Log("Predator killed!");
         }
-    }   
+    }
+    
+    public void GetInked(bool isInked)
+    {
+        if (isInked)
+        {
+            // Disable collisions with the predator
+            GetComponent<Collider2D>().enabled = false;
+            // Reduce the opacity of the predator
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        }
+    }
 }
