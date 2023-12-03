@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float _speed = 600f;
     public LogicScript logic;
+    private LogicGOScript lgo;
     public bool isAlive = true;
     public float minX;
     public float maxX;
@@ -17,11 +18,15 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        lgo = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicGOScript>();
     }
 
     private void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+
+
     }
 
     public void OnMove(InputAction.CallbackContext ctx)
@@ -48,7 +53,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        logic.gameOver();
+        lgo.gameOver();
         isAlive = false;
     }
 }

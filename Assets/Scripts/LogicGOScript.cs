@@ -28,6 +28,7 @@ public class LogicGOScript : MonoBehaviour
     {
         gameOverScreen.SetActive(true);
         ls.inGameOverState = true;
+        Debug.Log("Mati");
     }
 
     public void LoadScene(string sceneName)

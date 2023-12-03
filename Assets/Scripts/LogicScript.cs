@@ -84,16 +84,16 @@ public class LogicScript : MonoBehaviour
         predatorsKilled.text = predatorKillCount.ToString();
     }
 
-    public void restartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        playerScore = 0;
-        inGameOverState = false;
-    }
+    // public void restartGame()
+    // {
+    //     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    //     playerScore = 0;
+    //     inGameOverState = false;
+    // }
 
-    public void gameOver()
-    {
-        gameOverScreen.SetActive(true);
-        inGameOverState = true;
-    }
+    // public void gameOver()
+    // {
+    //     gameOverScreen.SetActive(true);
+    //     inGameOverState = true;
+    // }
 }
