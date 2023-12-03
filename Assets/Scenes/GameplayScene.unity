@@ -2619,6 +2619,7 @@ MonoBehaviour:
   scoreRound: 0
   scoreText: 
   gameOverScreen: {fileID: 2031226732}
+  inGameOverState: 0
 --- !u!114 &1440134868
 MonoBehaviour:
   m_ObjectHideFlags: 0
