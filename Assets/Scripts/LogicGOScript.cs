@@ -7,7 +7,6 @@ using TMPro;
 public class LogicGOScript : MonoBehaviour
 {
     LogicScript ls;
-    UIManagerScript uim;
     [SerializeField] private TextMeshProUGUI scoreUI;
     [SerializeField] private TextMeshProUGUI highScoreText;
     public GameObject gameOverScreen;
@@ -19,15 +18,8 @@ public class LogicGOScript : MonoBehaviour
         highScoreText.text = $"High Score: {PlayerPrefs.GetInt("HighScore", 0)}";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void restartGame()
     {
-        SceneManager.LoadScene("GameplayScene");
         ls.playerScore = 0;
         ls.inGameOverState = false;
     }
@@ -36,5 +28,10 @@ public class LogicGOScript : MonoBehaviour
     {
         gameOverScreen.SetActive(true);
         ls.inGameOverState = true;
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
