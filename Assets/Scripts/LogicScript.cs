@@ -29,7 +29,7 @@ public class LogicScript : MonoBehaviour
     UIManagerScript uim;
     public string scoreText;
     public GameObject gameOverScreen;
-    private bool inGameOverState = false;
+    public bool inGameOverState = false;
 
     [ContextMenu("Increase Score")]
     public string addScore()
