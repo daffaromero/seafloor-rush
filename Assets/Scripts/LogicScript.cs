@@ -28,7 +28,6 @@ public class LogicScript : MonoBehaviour
 
     UIManagerScript uim;
     public string scoreText;
-    public GameObject gameOverScreen;
     public bool inGameOverState = false;
 
     [ContextMenu("Increase Score")]
@@ -41,7 +40,9 @@ public class LogicScript : MonoBehaviour
             CheckHighScore();
         }
 
-        return scoreText = scoreRound.ToString();
+        scoreText = scoreRound.ToString();
+
+        return scoreText;
     }
 
     public void CheckHighScore() 
@@ -83,17 +84,4 @@ public class LogicScript : MonoBehaviour
     {
         predatorsKilled.text = predatorKillCount.ToString();
     }
-
-    // public void restartGame()
-    // {
-    //     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    //     playerScore = 0;
-    //     inGameOverState = false;
-    // }
-
-    // public void gameOver()
-    // {
-    //     gameOverScreen.SetActive(true);
-    //     inGameOverState = true;
-    // }
 }

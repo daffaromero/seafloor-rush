@@ -9,12 +9,18 @@ public class LogicGOScript : MonoBehaviour
     LogicScript ls;
     [SerializeField] private TextMeshProUGUI scoreUI;
     [SerializeField] private TextMeshProUGUI highScoreText;
-    public GameObject gameOverScreen;
-    // Start is called before the first frame update
     void Start()
     {
+        ls = LogicScript.Instance;
         gameOver();
-        scoreUI.text = ls.scoreText;
+    }
+
+    private void OnGUI() {
+        scoreUI.text = ls.addScore();
+        UpdateHighScoreText();
+    }
+    public void UpdateHighScoreText()
+    {
         highScoreText.text = $"High Score: {PlayerPrefs.GetInt("HighScore", 0)}";
     }
 
@@ -26,7 +32,6 @@ public class LogicGOScript : MonoBehaviour
 
     public void gameOver()
     {
-        gameOverScreen.SetActive(true);
         ls.inGameOverState = true;
         Debug.Log("Mati");
     }
