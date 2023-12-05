@@ -12,11 +12,15 @@ public class AudioManager : MonoBehaviour
     [Header("----- Audio Clip -----")]
     public AudioClip background;
     public AudioClip death;
-
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
         musicSource.clip = background;
         musicSource.Play();
+        
     }
 
     public void PlaySFX(AudioClip clip)
