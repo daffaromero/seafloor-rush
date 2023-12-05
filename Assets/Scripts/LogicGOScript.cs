@@ -9,6 +9,7 @@ public class LogicGOScript : MonoBehaviour
     LogicScript ls;
     [SerializeField] private TextMeshProUGUI scoreUI;
     [SerializeField] private TextMeshProUGUI highScoreText;
+    [SerializeField] private TextMeshProUGUI gameOverText;
     void Start()
     {
         ls = LogicScript.Instance;
@@ -36,6 +37,7 @@ public class LogicGOScript : MonoBehaviour
     public void gameOver()
     {
         ls.inGameOverState = true;
+        gameOverText.text = $"{PlayerPrefs.GetString("user_name", "Player 1")} Died :(";
         UpdateHighScoreText();
 
     }
