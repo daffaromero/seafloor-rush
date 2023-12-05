@@ -3,17 +3,16 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     public GameObject PausePanel;
-
     void Update()
     {
-        
+
     }
 
     public void Pause()
     {
         PausePanel.SetActive(true);
         Time.timeScale = 0;
-        
+
     }
 
     // You can call this method from a UI button's OnClick event

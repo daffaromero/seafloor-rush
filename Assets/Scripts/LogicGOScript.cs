@@ -29,6 +29,7 @@ public class LogicGOScript : MonoBehaviour
 
     public void restartGame()
     {
+        Time.timeScale = 1;
         ls.playerScore = 0;
         ls.inGameOverState = false;
     }

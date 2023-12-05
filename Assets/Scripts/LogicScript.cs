@@ -10,18 +10,19 @@ public class LogicScript : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI predatorsKilled;
     List<Predator> predators = new List<Predator>();
-    
+
     #region Singleton
 
     public static LogicScript Instance;
 
-    private void Awake() {
-        if(Instance == null) Instance = this;
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
         predators = GameObject.FindObjectsOfType<Predator>().ToList();
         UpdatePredatorKillCount();
     }
     #endregion
-    
+
     public float playerScore = 0f;
     public float currentRoundScore = 0f;
 
@@ -46,9 +47,9 @@ public class LogicScript : MonoBehaviour
         return scoreRound.ToString();
     }
 
-    public string CheckHighScore() 
+    public string CheckHighScore()
     {
-        if(scoreRound > PlayerPrefs.GetInt("HighScore", 0) && inGameOverState)
+        if (scoreRound > PlayerPrefs.GetInt("HighScore", 0) && inGameOverState)
         {
             PlayerPrefs.SetInt("HighScore", scoreRound);
             //uim.UpdateHighScoreText();
@@ -86,5 +87,12 @@ public class LogicScript : MonoBehaviour
     public void UpdatePredatorKillCount()
     {
         predatorsKilled.text = predatorKillCount.ToString();
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1;
+        playerScore = 0;
+        inGameOverState = false;
     }
 }
