@@ -2504,11 +2504,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstaclePrefab:
-  - {fileID: 201823166349424557, guid: 048b33f7ce7988f4089d430798b29371, type: 3}
-  - {fileID: 6596333150166054771, guid: c8b1f4a281e04d446823df54b32cd9a5, type: 3}
-  - {fileID: 2237882868433038588, guid: 8b89f3d10180e634dabe235f05fc1910, type: 3}
-  - {fileID: 2525539333111665821, guid: 376ae8e74d2d885468900e9c3d8d27bc, type: 3}
-  - {fileID: 2477579254549466218, guid: 56f03f888da15c24fb3be7a15e4cf8f7, type: 3}
+  - {fileID: 9139706339370330370, guid: a62f470560828a443aad284e58bbaf59, type: 3}
+  - {fileID: 5699051618425202040, guid: 97c7e5175e38d4b429e6472368a374fe, type: 3}
+  - {fileID: 9033605444133143280, guid: 39fd3b16153e96b41bb275f2c7390078, type: 3}
+  - {fileID: 8401619049673361515, guid: 9c64b2f237ae741498a26363db87955f, type: 3}
+  - {fileID: 1331933546982821445, guid: 789ca9ad81092cc479562bd3930e508e, type: 3}
   _spawnInterval: 2
   _minSpawn: -440
   _maxSpawn: 440
