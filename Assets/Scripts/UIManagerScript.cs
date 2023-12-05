@@ -7,8 +7,13 @@ public class UIManagerScript : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreUI;
     [SerializeField] private TextMeshProUGUI highScoreText;
-    // Start is called before the first frame update
+
     LogicScript ls;
+
+    private void Awake()
+    {
+        UpdateHighScoreText();
+    }
     private void Start()
     {
         ls = LogicScript.Instance;
@@ -16,7 +21,11 @@ public class UIManagerScript : MonoBehaviour
 
     private void OnGUI() {
         scoreUI.text = ls.addScore();
-        UpdateHighScoreText();
+
+        if (ls.inGameOverState)
+        {
+            UpdateHighScoreText();
+        }
     }
     public void UpdateHighScoreText()
     {

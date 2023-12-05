@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float _speed = 600f;
     public LogicScript logic;
-    public LogicGOScript lgo ;
+    public LogicGOScript lgo;
     public bool isAlive = true;
     public float minX;
     public float maxX;

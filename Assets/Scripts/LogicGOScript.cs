@@ -15,12 +15,18 @@ public class LogicGOScript : MonoBehaviour
         gameOver();
     }
 
-    private void OnGUI() {
+    private void OnGUI()
+    {
         scoreUI.text = ls.addScore();
-        UpdateHighScoreText();
+
+        if (ls.inGameOverState)
+        {
+            UpdateHighScoreText();
+        }
     }
     public void UpdateHighScoreText()
     {
+        ls.CheckHighScore();
         highScoreText.text = $"High Score: {PlayerPrefs.GetInt("HighScore", 0)}";
     }
 
@@ -33,7 +39,7 @@ public class LogicGOScript : MonoBehaviour
     public void gameOver()
     {
         ls.inGameOverState = true;
-        Debug.Log("Mati");
+        UpdateHighScoreText();
     }
 
     public void LoadScene(string sceneName)

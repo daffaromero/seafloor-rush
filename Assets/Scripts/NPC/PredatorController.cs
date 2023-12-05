@@ -34,7 +34,7 @@ public class PredatorController : MonoBehaviour
         var RandomX = Random.Range(minSpawn, maxSpawn);
         var RandomPosition = new Vector3(RandomX, transform.position.y);
 
-        GameObject gameObject = Instantiate(bigPredatorPrefab, RandomPosition, Quaternion.identity);
+        Instantiate(bigPredatorPrefab, RandomPosition, Quaternion.identity);
     }
 
     void SpawnSmall()
@@ -42,6 +42,6 @@ public class PredatorController : MonoBehaviour
         var RandomX = Random.Range(smallMinSpawn, smallMaxSpawn);
         var RandomPosition = new Vector3(RandomX, transform.position.y);
 
-        GameObject gameObject = Instantiate(smallPredatorPrefab, RandomPosition, Quaternion.identity);
+        Instantiate(smallPredatorPrefab, RandomPosition, Quaternion.identity);
     }
 }

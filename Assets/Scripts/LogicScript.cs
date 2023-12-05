@@ -23,6 +23,8 @@ public class LogicScript : MonoBehaviour
     #endregion
     
     public float playerScore = 0f;
+    public float currentRoundScore = 0f;
+
     public int scoreRound;
     private int predatorKillCount = 0;
 
@@ -35,23 +37,24 @@ public class LogicScript : MonoBehaviour
     {
         if (!inGameOverState)
         {
-            playerScore = playerScore + Time.deltaTime;
+            currentRoundScore += Time.deltaTime;
+            playerScore = currentRoundScore;
             scoreRound = Mathf.RoundToInt(playerScore);
-            CheckHighScore();
+            //CheckHighScore();
         }
 
-        scoreText = scoreRound.ToString();
-
-        return scoreText;
+        return scoreRound.ToString();
     }
 
-    public void CheckHighScore() 
+    public string CheckHighScore() 
     {
-        if(scoreRound > PlayerPrefs.GetInt("HighScore", 0))
+        if(scoreRound > PlayerPrefs.GetInt("HighScore", 0) && inGameOverState)
         {
             PlayerPrefs.SetInt("HighScore", scoreRound);
-            uim.UpdateHighScoreText();
+            //uim.UpdateHighScoreText();
         }
+
+        return PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
 
     // Safeguarding against null reference exceptions
