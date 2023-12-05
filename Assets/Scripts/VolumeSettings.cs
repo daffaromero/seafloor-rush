@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 public class VolumeSettings : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] private AudioMixer myMixer;
     void Start()
     {
         
