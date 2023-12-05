@@ -13,10 +13,6 @@ public class LogicGOScript : MonoBehaviour
     {
         ls = LogicScript.Instance;
         gameOver();
-    }
-
-    private void OnGUI()
-    {
         scoreUI.text = ls.addScore();
 
         if (ls.inGameOverState)
@@ -24,6 +20,7 @@ public class LogicGOScript : MonoBehaviour
             UpdateHighScoreText();
         }
     }
+
     public void UpdateHighScoreText()
     {
         ls.CheckHighScore();
