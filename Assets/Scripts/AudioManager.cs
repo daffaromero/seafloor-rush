@@ -11,9 +11,20 @@ public class AudioManager : MonoBehaviour
 
     [Header("----- Audio Clip -----")]
     public AudioClip background;
+    public static AudioManager instance;
+
     public AudioClip death;
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
         DontDestroyOnLoad(gameObject);
     }
     private void Start()

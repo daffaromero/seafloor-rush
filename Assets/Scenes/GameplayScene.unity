@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437fd451cfeb489418b08d6f2a06df2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5271748154401731452, guid: 22f09d0159c63d14fba92fd5d2083c99, type: 3}
+  bullet: {fileID: 4164230875877266779, guid: 4b759024928543d4b874d80ddd7b4b7b, type: 3}
   bulletTransform: {fileID: 43989255}
   canShoot: 1
   cooldown: 0.1
@@ -269,8 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2fa2acf6433054e8aba78379e802fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5271748154401731452, guid: 22f09d0159c63d14fba92fd5d2083c99, type: 3}
-  inkPrefab: {fileID: 5271748154401731452, guid: 431c2546330923d4998e832fc081f04f, type: 3}
+  bulletPrefab: {fileID: 4164230875877266779, guid: 4b759024928543d4b874d80ddd7b4b7b, type: 3}
+  inkPrefab: {fileID: 3385485200384321656, guid: 63253061b261ce5459254d9d32bab5c2, type: 3}
 --- !u!1 &130042788
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,8 +798,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99f4c57097c14144859675f0a7f96d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bigPredatorPrefab: {fileID: 4205795249904243675, guid: 16673134227e40b4ba83709a05a05330, type: 3}
-  smallPredatorPrefab: {fileID: 7344189582279826167, guid: 327a8a58b04a07a46901bf42dd2d3aa6, type: 3}
+  bigPredatorPrefab: {fileID: 5768915517625892292, guid: 5e33bb3f14109564ea213d1f8771959e, type: 3}
+  smallPredatorPrefab: {fileID: 6529358639740118462, guid: d069924dc37b5ae428635fd2bb28379a, type: 3}
   bigSpawnInterval: 15
   smallSpawnInterval: 5
   minSpawn: -320
@@ -2159,6 +2159,7 @@ GameObject:
   - component: {fileID: 1018951825}
   - component: {fileID: 1018951827}
   - component: {fileID: 1018951826}
+  - component: {fileID: 1018951828}
   m_Layer: 5
   m_Name: PausePanel
   m_TagString: Untagged
@@ -2177,7 +2178,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1775974692}
   m_Father: {fileID: 1417114216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2223,6 +2225,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018951824}
   m_CullTransparentMesh: 1
+--- !u!114 &1018951828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018951824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf9e3f0b9e674792834bef1dab77439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PausePanel: {fileID: 1018951824}
 --- !u!1 &1137417658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2235,6 +2250,8 @@ GameObject:
   - component: {fileID: 1137417662}
   - component: {fileID: 1137417661}
   - component: {fileID: 1137417660}
+  - component: {fileID: 1137417663}
+  - component: {fileID: 1137417664}
   m_Layer: 0
   m_Name: InkButton
   m_TagString: Untagged
@@ -2304,7 +2321,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1137417661}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 112883332}
+        m_TargetAssemblyTypeName: AbilitySwitcher, Assembly-CSharp
+        m_MethodName: SetAbility
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1137417661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2343,6 +2372,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137417658}
   m_CullTransparentMesh: 1
+--- !u!114 &1137417663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137417658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2fa2acf6433054e8aba78379e802fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4164230875877266779, guid: 4b759024928543d4b874d80ddd7b4b7b, type: 3}
+  inkPrefab: {fileID: 3385485200384321656, guid: 63253061b261ce5459254d9d32bab5c2, type: 3}
+--- !u!114 &1137417664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137417658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 437fd451cfeb489418b08d6f2a06df2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
+  bulletTransform: {fileID: 0}
+  canShoot: 1
+  cooldown: 0
 --- !u!1 &1206598764
 GameObject:
   m_ObjectHideFlags: 0
@@ -3097,7 +3156,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -3169,6 +3228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   predatorsKilled: {fileID: 611661595}
   playerScore: 0
+  currentRoundScore: 0
   scoreRound: 0
   scoreText: 
   inGameOverState: 0
@@ -3265,7 +3325,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1504029545}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1018951828}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1504029545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3423,6 +3495,7 @@ GameObject:
   - component: {fileID: 1581136714}
   - component: {fileID: 1581136713}
   - component: {fileID: 1581136712}
+  - component: {fileID: 1581136715}
   m_Layer: 0
   m_Name: ButtonShell
   m_TagString: Untagged
@@ -3492,7 +3565,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1581136713}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 112883332}
+        m_TargetAssemblyTypeName: AbilitySwitcher, Assembly-CSharp
+        m_MethodName: SetAbility
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1581136713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3531,6 +3616,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581136710}
   m_CullTransparentMesh: 1
+--- !u!114 &1581136715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581136710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2fa2acf6433054e8aba78379e802fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4164230875877266779, guid: 4b759024928543d4b874d80ddd7b4b7b, type: 3}
+  inkPrefab: {fileID: 3385485200384321656, guid: 63253061b261ce5459254d9d32bab5c2, type: 3}
 --- !u!1 &1646679440
 GameObject:
   m_ObjectHideFlags: 0
@@ -3709,6 +3808,138 @@ Transform:
   - {fileID: 1646679442}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1775974691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1775974692}
+  - component: {fileID: 1775974695}
+  - component: {fileID: 1775974694}
+  - component: {fileID: 1775974693}
+  m_Layer: 5
+  m_Name: ContButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1775974692
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775974691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1018951825}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -6, y: -6.1279}
+  m_SizeDelta: {x: 304.422, y: 299.6259}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1775974693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775974691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1775974694}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1018951828}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: Continue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1775974694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775974691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 01ec8b604ff54406da0a6aa49363f643, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1775974695
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775974691}
+  m_CullTransparentMesh: 1
 --- !u!1 &1999903894
 GameObject:
   m_ObjectHideFlags: 0

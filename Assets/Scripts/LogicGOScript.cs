@@ -40,6 +40,7 @@ public class LogicGOScript : MonoBehaviour
     {
         ls.inGameOverState = true;
         UpdateHighScoreText();
+
     }
 
     public void LoadScene(string sceneName)
