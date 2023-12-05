@@ -26,7 +26,6 @@ public class Predator : MonoBehaviour
             // Destroy the predator if it has no health left
             Destroy(gameObject);
             OnPredatorKilled?.Invoke(this);
-            Debug.Log("Predator killed!");
         }
     }
     
