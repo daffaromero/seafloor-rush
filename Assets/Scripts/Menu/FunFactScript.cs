@@ -19,7 +19,7 @@ public class FunFactScript : MonoBehaviour
 
     void ReadPrompts()
     {
-        string[] prompts = System.IO.File.ReadAllLines(@"Assets\Prompts.txt");
+        string[] prompts = System.IO.File.ReadAllLines(@"Assets\Scripts\Prompts.txt");
         Prompts = new List<string>(prompts);
     }
 
