@@ -4469,6 +4469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20007246b9480c04aada7725e802557d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layersEnemyCannotSpawnOn:
+    serializedVersion: 2
+    m_Bits: 8
   bigPredatorPrefab: {fileID: 5768915517625892292, guid: 5e33bb3f14109564ea213d1f8771959e, type: 3}
   smallPredatorPrefab: {fileID: 6529358639740118462, guid: d069924dc37b5ae428635fd2bb28379a, type: 3}
 --- !u!4 &1801275185

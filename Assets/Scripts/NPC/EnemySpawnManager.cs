@@ -6,6 +6,7 @@ public class EnemySpawnManager : MonoBehaviour
 {
     public static EnemySpawnManager instance;
 
+    [SerializeField] private LayerMask layersEnemyCannotSpawnOn;
     [SerializeField] GameObject bigPredatorPrefab;
     [SerializeField] GameObject smallPredatorPrefab;
 
@@ -47,7 +48,7 @@ public class EnemySpawnManager : MonoBehaviour
             bool isInvalidCollision = false;
             foreach (Collider2D collider in colliders)
             {
-                if (collider.gameObject.layer == layerToNotSpawnOn)
+                if (((1 << collider.gameObject.layer) & layersEnemyCannotSpawnOn) != 0)
                 {
                     isInvalidCollision = true;
                     break;
