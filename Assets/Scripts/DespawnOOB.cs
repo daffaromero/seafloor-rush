@@ -18,7 +18,6 @@ public class DespawnOOB : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-            Debug.Log("Object collided");
             // Destroy the object
             Destroy(collision.gameObject);
     }
