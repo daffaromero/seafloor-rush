@@ -32,7 +32,7 @@ public class AbilitySwitcher : MonoBehaviour
         }
     }
 
-    void SetAbility(int abilityID)
+    public void SetAbility(int abilityID)
     {
         switch (abilityID)
         {
