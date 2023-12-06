@@ -1041,9 +1041,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b858e70a15ef144c29e8012a33ccab49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterDB: {fileID: 11400000, guid: 016d929a31cfd43c7b10d0b99a3599bf, type: 2}
-  nameText: {fileID: 141692265}
-  artworkSprite: {fileID: 1861664489}
+  characterDB: {fileID: 0}
+  nameText: {fileID: 0}
+  artworkSprite: {fileID: 0}
 --- !u!1 &886838718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,9 +1126,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 849233637}
+      - m_Target: {fileID: 695909296}
         m_TargetAssemblyTypeName: CharacterManager, Assembly-CSharp
-        m_MethodName: NextOption
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
