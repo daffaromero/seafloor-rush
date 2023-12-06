@@ -17,3 +17,5 @@ MonoBehaviour:
     characterSprite: {fileID: 21300000, guid: b8d933afc86bf4984a12ac8da2dee9fb, type: 3}
   - characterName: Blu Octopus
     characterSprite: {fileID: 21300000, guid: 55fcf28759106493cbd2751694556555, type: 3}
+  - characterName: Angry Octopus
+    characterSprite: {fileID: 21300000, guid: 24bfa1b9490cf468189cf4ee768279b0, type: 3}
