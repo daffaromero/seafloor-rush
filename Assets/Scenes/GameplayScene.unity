@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1000,7 +1000,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
+--- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: 0
+  m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -1054,7 +1054,6 @@ GameObject:
   m_Component:
   - component: {fileID: 570929918}
   - component: {fileID: 570929917}
-  - component: {fileID: 570929919}
   m_Layer: 8
   m_Name: vecteezy_vector-blue-pixel-texture-background-illustration_19542451 (1)
   m_TagString: Untagged
@@ -1129,21 +1128,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1559140629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &570929919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570929916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62ec1c7b074d3459f8a72055e74d8cab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dimDuration: 60
-  dimColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-  dimSpeed: 0.5
 --- !u!1 &611661592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,6 +1273,7 @@ GameObject:
   - component: {fileID: 619394802}
   - component: {fileID: 619394801}
   - component: {fileID: 619394803}
+  - component: {fileID: 619394805}
   - component: {fileID: 619394804}
   m_Layer: 0
   m_Name: Global Light 2D
@@ -1324,15 +1309,15 @@ MonoBehaviour:
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
-  m_NormalMapQuality: 0
+  m_NormalMapQuality: 2
   m_UseNormalMap: 0
   m_ShadowIntensityEnabled: 1
   m_ShadowIntensity: 0.75
   m_ShadowVolumeIntensityEnabled: 1
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1367,6 +1352,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 619394800}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e293d778f9348c38fab36656220ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 30
+  gradient:
+    serializedVersion: 2
+    key0: {r: 0.21176471, g: 0.46666667, b: 0.73333335, a: 1}
+    key1: {r: 1, g: 0.5921569, b: 0, a: 1}
+    key2: {r: 1, g: 0.844628, b: 0.6190398, a: 0}
+    key3: {r: 1, g: 1, b: 1, a: 0}
+    key4: {r: 1, g: 1, b: 1, a: 0}
+    key5: {r: 1, g: 0.6565297, b: 0.15783724, a: 0}
+    key6: {r: 0.21176471, g: 0.46666667, b: 0.73333335, a: 0}
+    key7: {r: 0.21176471, g: 0.46666667, b: 0.73333335, a: 0}
+    ctime0: 5204
+    ctime1: 21010
+    ctime2: 27371
+    ctime3: 32575
+    ctime4: 35466
+    ctime5: 44140
+    ctime6: 59174
+    ctime7: 65150
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 2
+--- !u!114 &619394804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619394800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -1381,7 +1409,7 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!108 &619394804
+--- !u!108 &619394805
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1453,7 +1481,6 @@ GameObject:
   m_Component:
   - component: {fileID: 706957118}
   - component: {fileID: 706957119}
-  - component: {fileID: 706957120}
   m_Layer: 8
   m_Name: vecteezy_vector-blue-pixel-texture-background-illustration_19542451 (3)
   m_TagString: Untagged
@@ -1528,21 +1555,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &706957120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706957117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62ec1c7b074d3459f8a72055e74d8cab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dimDuration: 60
-  dimColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-  dimSpeed: 0.5
 --- !u!1 &804287844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,7 +1565,6 @@ GameObject:
   m_Component:
   - component: {fileID: 804287846}
   - component: {fileID: 804287845}
-  - component: {fileID: 804287847}
   m_Layer: 8
   m_Name: vecteezy_vector-blue-pixel-texture-background-illustration_19542451
   m_TagString: Untagged
@@ -1628,21 +1639,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1559140629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &804287847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 804287844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62ec1c7b074d3459f8a72055e74d8cab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dimDuration: 60
-  dimColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-  dimSpeed: 0.5
 --- !u!1 &817931050
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,7 +2296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1018951825
 RectTransform:
   m_ObjectHideFlags: 0

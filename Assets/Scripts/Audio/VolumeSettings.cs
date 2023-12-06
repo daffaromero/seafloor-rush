@@ -7,15 +7,30 @@ using UnityEngine.Audio;
 public class VolumeSettings : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private AudioMixer myMixer;
+    
+    [SerializeField] Slider volumeSlider;
+    
     void Start()
     {
-        
+        if(!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume", 1);
+            Load();
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    public void ChangeVolume()
     {
-        
+        AudioListener.volume = volumeSlider.value;
+    }
+    private void Load()
+    {
+        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }
 }
