@@ -636,7 +636,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 849233637}
+      - m_Target: {fileID: 695909300}
         m_TargetAssemblyTypeName: CharacterManager, Assembly-CSharp
         m_MethodName: BackOption
         m_Mode: 1
@@ -697,6 +697,7 @@ GameObject:
   - component: {fileID: 695909298}
   - component: {fileID: 695909297}
   - component: {fileID: 695909299}
+  - component: {fileID: 695909300}
   m_Layer: 0
   m_Name: SettingsLogic
   m_TagString: Untagged
@@ -738,12 +739,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695909296}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 422cc6de14b9e4c03ab45434a3d03e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 0}
+  volumeSlider: {fileID: 2115249626}
+--- !u!114 &695909300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695909296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b858e70a15ef144c29e8012a33ccab49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterDB: {fileID: 11400000, guid: 016d929a31cfd43c7b10d0b99a3599bf, type: 2}
+  nameText: {fileID: 141692265}
+  artworkSprite: {fileID: 1861664489}
 --- !u!1 &726260536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,9 +1142,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 695909296}
+      - m_Target: {fileID: 695909300}
         m_TargetAssemblyTypeName: CharacterManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: NextOption
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
