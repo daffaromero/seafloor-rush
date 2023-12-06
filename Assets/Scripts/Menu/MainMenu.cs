@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class MainMenu : MonoBehaviour
 {
     LogicScript ls;
+    public GameObject tutorialScreen;
 
     void Awake()
     {
@@ -22,5 +23,15 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ActivateTutorial()
+    {
+        tutorialScreen.SetActive(true);
+    }
+
+    public void CloseTutorial()
+    {
+        tutorialScreen.SetActive(false);
     }
 }

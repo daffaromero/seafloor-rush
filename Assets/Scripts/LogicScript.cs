@@ -17,6 +17,10 @@ public class LogicScript : MonoBehaviour
 
     private void Awake()
     {
+        if(PlayerPrefs.GetInt("HighScore") == 0)
+        {
+            ActivateTutorial();
+        }
         if (Instance == null) Instance = this;
         predators = GameObject.FindObjectsOfType<Predator>().ToList();
         UpdatePredatorKillCount();
@@ -32,6 +36,8 @@ public class LogicScript : MonoBehaviour
     UIManagerScript uim;
     public string scoreText;
     public bool inGameOverState = false;
+    public GameObject tutorialScreen;
+    public GameObject ContinueButton;
 
     [ContextMenu("Increase Score")]
     public string addScore()
@@ -87,6 +93,18 @@ public class LogicScript : MonoBehaviour
     public void UpdatePredatorKillCount()
     {
         predatorsKilled.text = predatorKillCount.ToString();
+    }
+
+    public void ActivateTutorial()
+    {
+        tutorialScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void Continue()
+    {
+        tutorialScreen.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void RestartGame()
