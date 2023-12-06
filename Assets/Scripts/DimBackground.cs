@@ -4,7 +4,7 @@ public class DimBackground : MonoBehaviour
 {
     public float dimDuration = 30.0f; // Time in seconds to dim the background
     public Color dimColor = new Color(0.2f, 0.2f, 0.2f, 1.0f); // Dark gray color
-    public float dimSpeed = 0.5f; // Speed at which the background dims
+    public float dimSpeed = 0f; // Speed at which the background dims
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
