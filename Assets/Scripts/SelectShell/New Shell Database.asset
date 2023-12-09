@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a903012437944d09bbec92ad3a3c55, type: 3}
+  m_Name: New Shell Database
+  m_EditorClassIdentifier: 
+  shells:
+  - shellName: White Shell
+    shellSprite: {fileID: 21300000, guid: 2f05267eeefe8794d9790bd33429595e, type: 3}
+  - shellName: Pink Shell
+    shellSprite: {fileID: 21300000, guid: 6f5c1fa24c9d96840aa84cce90416d90, type: 3}
+  - shellName: Green Shell
+    shellSprite: {fileID: 21300000, guid: 3de558591f1374372b5162236b93c4e2, type: 3}
+  - shellName: Starfish
+    shellSprite: {fileID: 21300000, guid: 3884719f7b753421e80cbb6d55495ffd, type: 3}

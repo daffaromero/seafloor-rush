@@ -10,9 +10,9 @@ public class ItemCollector : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("kena deh");
             Destroy(gameObject);
             shells++;
+            Debug.Log("Shells :" + shells);
         }
     }
 }

@@ -4345,6 +4345,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 946038836666911587, guid: 860d5fa4e68d345679839df90416e86f, type: 3}
+      propertyPath: shellDB
+      value: 
+      objectReference: {fileID: 11400000, guid: 2066a688a1ce04225ad5a9696cb8544e, type: 2}
+    - target: {fileID: 946038836666911587, guid: 860d5fa4e68d345679839df90416e86f, type: 3}
+      propertyPath: artworkSprite
+      value: 
+      objectReference: {fileID: 7408671659796389430}
     - target: {fileID: 1327864330551858641, guid: 860d5fa4e68d345679839df90416e86f, type: 3}
       propertyPath: logic
       value: 
@@ -4432,6 +4440,11 @@ Transform:
 --- !u!212 &7408671659796389429 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 5944030186385724928, guid: 860d5fa4e68d345679839df90416e86f, type: 3}
+  m_PrefabInstance: {fileID: 7408671659796389427}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &7408671659796389430 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1920786284590307895, guid: 860d5fa4e68d345679839df90416e86f, type: 3}
   m_PrefabInstance: {fileID: 7408671659796389427}
   m_PrefabAsset: {fileID: 0}
 --- !u!61 &7483307466353820421
