@@ -5,7 +5,8 @@ using UnityEngine;
 public class ShockWaveManager : MonoBehaviour
 {
     [SerializeField] private float shockWaveTime = 0.75f;
-
+    [SerializeField] private float yOffset = -100f;
+    public static ShockWaveManager Instance;
     private Coroutine shockWaveCoroutine;
 
     private Material material;
@@ -15,21 +16,26 @@ public class ShockWaveManager : MonoBehaviour
     private void Awake()
     {
         material = GetComponent<SpriteRenderer>().material;
+        if (Instance == null) Instance = this;
     }
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CallShockWave();
-        }
+        transform.position += new Vector3(0f, yOffset, 0f);
+
     }
+
+    // private void Update()
+    // {
+    // if (Input.GetKeyDown(KeyCode.Space))
+    // {
+    //     CallShockWave();
+    // }
+    // }
 
     public void CallShockWave()
     {
         shockWaveCoroutine = StartCoroutine(ShockWaveAction(-0.1f, 1f));
-
-
     }
 
     private IEnumerator ShockWaveAction(float startPos, float endPos)
@@ -43,7 +49,7 @@ public class ShockWaveManager : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            lerpedAmount = Mathf.Lerp(startPos, endPos, (elapsedTime / shockWaveTime));
+            lerpedAmount = Mathf.Lerp(startPos, endPos, elapsedTime / shockWaveTime);
             material.SetFloat(waveDistanceFromCenter, lerpedAmount);
 
             yield return null;

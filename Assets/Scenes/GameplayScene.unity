@@ -909,8 +909,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 804287846}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420034
@@ -1297,7 +1296,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: e9536a0400000000
+  m_ApplyToSortingLayers: 00000000e9536a04
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1345,7 +1344,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619394800}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22e293d778f9348c38fab36656220ca1, type: 3}
   m_Name: 
@@ -1488,6 +1487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shockWaveTime: 0.75
+  yOffset: -100
 --- !u!1 &817931050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1966,7 +1966,7 @@ GameObject:
   - component: {fileID: 1137417660}
   - component: {fileID: 1137417663}
   m_Layer: 0
-  m_Name: InkButton
+  m_Name: ButtonInk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2747,9 +2747,9 @@ RectTransform:
   m_Children:
   - {fileID: 1358915805}
   - {fileID: 893727551}
-  - {fileID: 1999903895}
   - {fileID: 882445597}
   - {fileID: 611661593}
+  - {fileID: 1999903895}
   - {fileID: 1137417659}
   - {fileID: 1581136711}
   - {fileID: 1382860870}
@@ -3961,7 +3961,7 @@ GameObject:
   - component: {fileID: 1999903896}
   - component: {fileID: 1999903899}
   m_Layer: 0
-  m_Name: ButtonR
+  m_Name: ButtonCamo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4222,6 +4222,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6748122570853196664, guid: 860d5fa4e68d345679839df90416e86f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5650374}
+    - targetCorrespondingSourceObject: {fileID: 6748122570853196664, guid: 860d5fa4e68d345679839df90416e86f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 804287846}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 860d5fa4e68d345679839df90416e86f, type: 3}
 --- !u!4 &7408671659796389428 stripped
@@ -4449,23 +4452,31 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 519420032}
+    m_TransformParent: {fileID: 7408671659796389428}
     m_Modifications:
     - target: {fileID: 1952820219313150277, guid: 5c1f935dfa03e9f46af11e0ff9a4b620, type: 3}
       propertyPath: m_LocalScale.x
-      value: 113
+      value: 13.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952820219313150277, guid: 5c1f935dfa03e9f46af11e0ff9a4b620, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952820219313150277, guid: 5c1f935dfa03e9f46af11e0ff9a4b620, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1952820219313150277, guid: 5c1f935dfa03e9f46af11e0ff9a4b620, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 1952820219313150277, guid: 5c1f935dfa03e9f46af11e0ff9a4b620, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 25.4
       objectReference: {fileID: 0}
     - target: {fileID: 1952820219313150277, guid: 5c1f935dfa03e9f46af11e0ff9a4b620, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 300
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1952820219313150277, guid: 5c1f935dfa03e9f46af11e0ff9a4b620, type: 3}
       propertyPath: m_LocalRotation.w
