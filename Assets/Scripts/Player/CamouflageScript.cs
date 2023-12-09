@@ -14,6 +14,7 @@ public class CamouflageScript : MonoBehaviour
     private bool isRecharging = false;
     private int originalLayer;
 
+    ShockWaveManager shockWaveManager;
     public SpriteRenderer spriteRenderer;
 
     public bool CamouflagedState()
@@ -21,11 +22,18 @@ public class CamouflageScript : MonoBehaviour
         return isCamouflaged;
     }
 
+    void Awake()
+    {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        shockWaveManager = ShockWaveManager.Instance;
+
         originalLayer = gameObject.layer;
-        spriteRenderer = GetComponent <SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         // Set up the Input System action
         camouflageAction = new InputAction(binding: "<Gamepad>/buttonSouth"); // Customize the binding according to your needs
@@ -65,6 +73,7 @@ public class CamouflageScript : MonoBehaviour
     {
         isCamouflaged = true;
         StartCoroutine(DisableCollisions());
+        shockWaveManager.CallShockWave();
         yield return new WaitForSeconds(timeToLive);
 
         spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
