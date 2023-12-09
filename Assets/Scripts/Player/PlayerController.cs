@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float maxX;
     public float minY;
     public float maxY;
+    [SerializeField] GameObject gameOverScreen;
 
     private void Awake()
     {
@@ -43,6 +44,17 @@ public class PlayerController : MonoBehaviour
             transform.position.z);
     }
 
+    private IEnumerator GameOverCoroutine()
+    {
+        gameOverScreen.SetActive(true);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime (0.2f);
+        lgo = FindObjectOfType<LogicGOScript>();
+        SceneManager.LoadScene("GameOverScene");
+        lgo.gameOver();
+        isAlive = false;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Does not happen when the player collides with the Phantom layer
@@ -50,9 +62,6 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        lgo = FindObjectOfType<LogicGOScript>();
-        SceneManager.LoadScene("GameOverScene");
-        lgo.gameOver();
-        isAlive = false;
+        StartCoroutine(GameOverCoroutine());
     }
 }
