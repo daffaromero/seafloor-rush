@@ -6,19 +6,29 @@ using TMPro;
 
 public class NameDisplayScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] private TextMeshProUGUI nameText;
-    [SerializeField] private TMP_InputField displayName;
+    [SerializeField] private TextMeshProUGUI displayName;
+    [SerializeField] private TMP_InputField inputName;
+
     void Start()
     {
-        nameText.text = PlayerPrefs.GetString("user_name", "Player 1");
+        // Set the initial display name
+        displayName.text = PlayerPrefs.GetString("user_name", "Player 1");
+
+        // Subscribe to the onEndEdit event
+        inputName.onEndEdit.AddListener(OnEndEdit);
     }
 
-    public void Create()
+    private void OnEndEdit(string text)
     {
-        nameText.text = displayName.text;
-        PlayerPrefs.SetString("user_name", nameText.text);
+        // Save the input text to PlayerPrefs
+        PlayerPrefs.SetString("user_name", text);
         PlayerPrefs.Save();
-        displayName.text = displayName.placeholder.GetComponent<TextMeshProUGUI>().text;
+
+        // Update the display name
+        displayName.text = PlayerPrefs.GetString("user_name", "Player 1");
+
+        // Clear the input field text and show the placeholder
+        inputName.text = "";
+        inputName.placeholder.gameObject.SetActive(true);
     }
 }
