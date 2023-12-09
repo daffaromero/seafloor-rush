@@ -2956,6 +2956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   predatorsKilled: {fileID: 611661595}
+  highScoreText: {fileID: 882445598}
   playerScore: 0
   currentRoundScore: 0
   scoreRound: 0
