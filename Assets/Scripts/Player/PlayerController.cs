@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public float maxX;
     public float minY;
     public float maxY;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,21 +37,24 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         transform.position = new Vector3(
-            Mathf.Clamp(transform.position.x, minX, maxX), 
-            Mathf.Clamp(transform.position.y, minY, maxY), 
+            Mathf.Clamp(transform.position.x, minX, maxX),
+            Mathf.Clamp(transform.position.y, minY, maxY),
             transform.position.z);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Does not happen when the player collides with the Phantom layer
-        if (collision.gameObject.layer == 8)
+        // Debug.Log("Collision detected!");
+
+        // If collided object is not on Layer 8
+        if (collision.gameObject.layer != 8)
         {
-            return;
+            EventManager eventManager = FindObjectOfType<EventManager>();
+            if (eventManager != null)
+            {
+                // Debug.Log("Triggering Game Over!");
+                eventManager.TriggerGameOver();
+            }
         }
-        lgo = FindObjectOfType<LogicGOScript>();
-        SceneManager.LoadScene("GameOverScene");
-        lgo.gameOver();
-        isAlive = false;
     }
 }

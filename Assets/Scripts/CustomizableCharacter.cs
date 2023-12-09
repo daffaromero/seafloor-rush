@@ -20,7 +20,7 @@ public class CustomizableCharacter : MonoBehaviour
     }
     void SkinChoice()
     {
-        if (spriteRenderer.sprite.name.Contains("Skin1")) ;
+        if (spriteRenderer.sprite.name.Contains("Skin1"));
 
     }
 }

@@ -13,16 +13,41 @@ public class LogicScript : MonoBehaviour
     List<Predator> predators = new List<Predator>();
 
     #region Singleton
-
-    public static LogicScript Instance;
+    private static LogicScript instance;
+    public static LogicScript Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<LogicScript>();
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject();
+                    obj.name = "LogicScript";
+                    instance = obj.AddComponent<LogicScript>();
+                }
+            }
+            return instance;
+        }
+    }
 
     private void Awake()
     {
-        if(PlayerPrefs.GetInt("HighScore") == 0)
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        if (PlayerPrefs.GetInt("HighScore") == 0)
         {
             ActivateTutorial();
         }
-        if (Instance == null) Instance = this;
         predators = GameObject.FindObjectsOfType<Predator>().ToList();
         UpdatePredatorKillCount();
     }
@@ -37,6 +62,12 @@ public class LogicScript : MonoBehaviour
     public GameObject tutorialScreen;
     public GameObject ContinueButton;
 
+    private int xpAmount;
+
+    public int GetXpAmount()
+    {
+        return xpAmount;
+    }
     public string addScore()
     {
         if (!inGameOverState)
@@ -44,7 +75,9 @@ public class LogicScript : MonoBehaviour
             currentRoundScore += Time.deltaTime;
             playerScore = currentRoundScore;
             scoreRound = (predatorKillCount * 10) + Mathf.RoundToInt(playerScore);
+
             CheckHighScore();
+            xpAmount = scoreRound;
         }
 
         return scoreRound.ToString();

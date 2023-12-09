@@ -7,25 +7,46 @@ using TMPro;
 public class LogicGOScript : MonoBehaviour
 {
     LogicScript ls;
+    XpManager xpM;
     [SerializeField] private TextMeshProUGUI scoreUI;
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private TextMeshProUGUI gameOverText;
+
     void Start()
     {
         ls = LogicScript.Instance;
+        xpM = XpManager.Instance;
+
+        if (ls == null)
+        {
+            Debug.LogError("LogicScript instance is not properly initialized.");
+        }
+        if (xpM == null)
+        {
+            Debug.LogError("XpManager instance is not properly initialized.");
+        }
+
         gameOver();
         scoreUI.text = ls.addScore();
 
-        if (ls.inGameOverState)
-        {
-            UpdateHighScoreText();
-        }
     }
 
     public void UpdateHighScoreText()
     {
         ls.CheckHighScore();
         highScoreText.text = $"High Score: {PlayerPrefs.GetInt("HighScore", 0)}";
+    }
+
+    public void UpdateXpGained()
+    {
+        if (xpM != null)
+        {
+            xpM.AddXp(ls.GetXpAmount());
+        }
+        else
+        {
+            Debug.LogError("XpManager instance is null. Cannot update XP gained.");
+        }
     }
 
     public void restartGame()
@@ -40,6 +61,9 @@ public class LogicGOScript : MonoBehaviour
         ls.inGameOverState = true;
         gameOverText.text = $"{PlayerPrefs.GetString("user_name", "Player 1")} Died :(";
         UpdateHighScoreText();
+        UpdateXpGained();
+        // xpM.AddXp(ls.GetXpAmount());
+        // Debug.Log("XP added: " + ls.GetXpAmount());
 
     }
 
