@@ -9,6 +9,7 @@ using System.Linq;
 public class LogicScript : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI predatorsKilled;
+    [SerializeField] TextMeshProUGUI highScoreText;
     List<Predator> predators = new List<Predator>();
 
     #region Singleton
@@ -32,22 +33,18 @@ public class LogicScript : MonoBehaviour
 
     public int scoreRound;
     private int predatorKillCount = 0;
-
-    UIManagerScript uim;
-    public string scoreText;
     public bool inGameOverState = false;
     public GameObject tutorialScreen;
     public GameObject ContinueButton;
 
-    [ContextMenu("Increase Score")]
     public string addScore()
     {
         if (!inGameOverState)
         {
             currentRoundScore += Time.deltaTime;
             playerScore = currentRoundScore;
-            scoreRound = Mathf.RoundToInt(playerScore);
-            //CheckHighScore();
+            scoreRound = (predatorKillCount * 10) + Mathf.RoundToInt(playerScore);
+            CheckHighScore();
         }
 
         return scoreRound.ToString();
@@ -55,10 +52,10 @@ public class LogicScript : MonoBehaviour
 
     public string CheckHighScore()
     {
-        if (scoreRound > PlayerPrefs.GetInt("HighScore", 0) && inGameOverState)
+        if (scoreRound > PlayerPrefs.GetInt("HighScore", 0))
         {
             PlayerPrefs.SetInt("HighScore", scoreRound);
-            //uim.UpdateHighScoreText();
+            highScoreText.text = $"High Score: {PlayerPrefs.GetInt("HighScore", 0)}";
         }
 
         return PlayerPrefs.GetInt("HighScore", 0).ToString();
