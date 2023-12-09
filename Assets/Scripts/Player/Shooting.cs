@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    public ShellDatabase shellDB;
+    public SpriteRenderer artworkSprite;
+
+    private int selectedOption = 0;
     private Camera mainCam;
     private Vector3 mousePos;
     
@@ -21,8 +25,21 @@ public class Shooting : MonoBehaviour
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         camouflageScript = GameObject.FindGameObjectWithTag("Player").GetComponent<CamouflageScript>();
+        if(!PlayerPrefs.HasKey("selectedOption"))
+        {
+            selectedOption = 0;
+        }
+        else
+        {
+            Load();
+        }
+        UpdateShell(selectedOption);
     }
-
+    private void UpdateShell(int selectedOption)
+    {
+        Shells shells = shellDB.GetCharacter(selectedOption);
+        artworkSprite.sprite = shells.shellSprite;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -61,4 +78,8 @@ public class Shooting : MonoBehaviour
     {
         bullet = bulletPrefab;
     }
-}
+    private void Load()
+    {
+        selectedOption = PlayerPrefs.GetInt("selectedOption");
+    }
+}   

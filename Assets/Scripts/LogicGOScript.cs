@@ -54,6 +54,7 @@ public class LogicGOScript : MonoBehaviour
         Time.timeScale = 1;
         ls.playerScore = 0;
         ls.inGameOverState = false;
+        LoadScene("GameplayScene");
     }
 
     public void gameOver()
