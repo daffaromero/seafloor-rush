@@ -48,26 +48,22 @@ public class PlayerController : MonoBehaviour
     {
         gameOverScreen.SetActive(true);
         Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime (0.2f);
-        lgo = FindObjectOfType<LogicGOScript>();
-        SceneManager.LoadScene("GameOverScene");
-        lgo.gameOver();
-        isAlive = false;
+        yield return new WaitForSecondsRealtime(0.2f);
+
+        EventManager eventManager = FindObjectOfType<EventManager>();
+        if (eventManager != null)
+        {
+            // Debug.Log("Triggering Game Over!");
+            eventManager.TriggerGameOver();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Debug.Log("Collision detected!");
-
         // If collided object is not on Layer 8
         if (collision.gameObject.layer != 8)
         {
-            EventManager eventManager = FindObjectOfType<EventManager>();
-            if (eventManager != null)
-            {
-                // Debug.Log("Triggering Game Over!");
-                eventManager.TriggerGameOver();
-            }
+            StartCoroutine(GameOverCoroutine());
         }
     }
 }

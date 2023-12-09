@@ -20,6 +20,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
+
     public void TriggerGameOver()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverScene");
