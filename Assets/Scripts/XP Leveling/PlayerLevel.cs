@@ -6,22 +6,36 @@ using UnityEngine.UI;
 public class PlayerLevel : MonoBehaviour
 {
     int totalXp, maxXp, currentLevel;
+    XpManager xpManager;
 
+    private void Start()
+    {
+
+
+    }
     private void OnEnable()
     {
-        XpManager.Instance.OnXpChange += HandleXpChange;
+        xpManager = XpManager.Instance;
+
+        if (xpManager == null)
+        {
+            Debug.LogError("XpManager is null. Called from PlayerLevel.cs");
+        }
+
+        xpManager.OnXpChange += HandleXpChange;
         LoadPlayerData();
     }
 
     private void OnDisable()
     {
-        XpManager.Instance.OnXpChange -= HandleXpChange;
+        xpManager.OnXpChange -= HandleXpChange;
         SavePlayerData();
     }
 
     private void HandleXpChange(int newXp)
     {
         totalXp += newXp;
+
         if (totalXp >= maxXp)
         {
             Debug.Log("Level up!");
@@ -29,7 +43,6 @@ public class PlayerLevel : MonoBehaviour
         }
         SavePlayerData();
     }
-
 
     private void LevelUp()
     {

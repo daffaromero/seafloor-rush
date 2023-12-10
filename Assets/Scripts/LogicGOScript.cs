@@ -34,6 +34,7 @@ public class LogicGOScript : MonoBehaviour
         {
             Debug.LogError("LogicScript instance is null. Cannot update score.");
         }
+
         xpM = XpManager.Instance;
 
         gameOver();

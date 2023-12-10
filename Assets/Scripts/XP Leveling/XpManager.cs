@@ -12,7 +12,7 @@ public class XpManager : MonoBehaviour
         {
             if (instance == null)
             {
-                Debug.LogError("XpManager instance is null. Cannot update score.");
+                instance = new GameObject("XpManager").AddComponent<XpManager>();
             }
             return instance;
         }

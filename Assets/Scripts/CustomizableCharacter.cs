@@ -13,14 +13,13 @@ public class CustomizableCharacter : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    // void Update()
+    // {
 
-    }
-    void SkinChoice()
-    {
-        if (spriteRenderer.sprite.name.Contains("Skin1"));
+    // }
+    // // void SkinChoice()
+    // // {
+    // //     if (spriteRenderer.sprite.name.Contains("Skin1"));
 
-    }
+    // // }
 }
