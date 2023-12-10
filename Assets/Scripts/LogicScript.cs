@@ -60,10 +60,10 @@ public class LogicScript : MonoBehaviour
     public GameObject tutorialScreen;
     public GameObject ContinueButton;
 
-    private int xpAmount;
 
-    public int GetXpAmount()
+    public int GetXpAmountPerGame()
     {
+        Debug.Log("XpGain: " + PlayerPrefs.GetInt("XpGain", 0));
         return PlayerPrefs.GetInt("XpGain", 0);
     }
 
@@ -83,7 +83,7 @@ public class LogicScript : MonoBehaviour
     public string CheckHighScore()
     {
         // xpAmount = scoreRound;
-        // PlayerPrefs.SetInt("XpGain", xpAmount);
+        PlayerPrefs.SetInt("XpGain", scoreRound);
 
         if (scoreRound > PlayerPrefs.GetInt("HighScore", 0))
         {
@@ -171,7 +171,6 @@ public class LogicScript : MonoBehaviour
         currentRoundScore = 0f;
         playerScore = 0f;
         predatorKillCount = 0;
-        xpAmount = 0;
         inGameOverState = false;
     }
 }

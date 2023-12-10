@@ -12,14 +12,7 @@ public class XpManager : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<XpManager>();
-
-                if (instance == null)
-                {
-                    GameObject obj = new GameObject();
-                    obj.name = typeof(XpManager).Name;
-                    instance = obj.AddComponent<XpManager>();
-                }
+                Debug.LogError("XpManager instance is null. Cannot update score.");
             }
             return instance;
         }

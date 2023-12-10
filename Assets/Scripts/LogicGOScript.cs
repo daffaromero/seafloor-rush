@@ -52,7 +52,7 @@ public class LogicGOScript : MonoBehaviour
     {
         if (xpM != null)
         {
-            xpM.AddXp(ls.GetXpAmount());
+            xpM.AddXp(ls.GetXpAmountPerGame());
         }
         else
         {

@@ -24,6 +24,7 @@ public class PlayerLevel : MonoBehaviour
         totalXp += newXp;
         if (totalXp >= maxXp)
         {
+            Debug.Log("Level up!");
             LevelUp();
         }
         SavePlayerData();
@@ -54,6 +55,7 @@ public class PlayerLevel : MonoBehaviour
         maxXp = PlayerPrefs.GetInt("maxXp", CalculateMaxXp(currentLevel));
         currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
 
+        Debug.Log($"totalXp: {totalXp}, maxXp: {maxXp}, currentLevel: {currentLevel}");
     }
 
     private int CalculateMaxXp(int level)
