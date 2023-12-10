@@ -11,55 +11,55 @@ public class ShellManager : MonoBehaviour
     public Text nameText;
     public SpriteRenderer artworkSprite;
 
-    private int selectedOption = 0;
+    private int selectedShell = 0;
     // Start is called before the first frame update
     void Start()
     {
-        if(!PlayerPrefs.HasKey("selectedOption"))
+        if(!PlayerPrefs.HasKey("selectedShell"))
         {
-            selectedOption = 0;
+            selectedShell = 0;
         }
         else
         {
             Load();
         }
-        UpdateShell(selectedOption);
+        UpdateShell(selectedShell);
     }
     public void NextOption()
     {
-        selectedOption++;
+        selectedShell++;
 
-        if(selectedOption >= shellDB.CharacterCount)
+        if(selectedShell >= shellDB.CharacterCount)
         {
-            selectedOption = 0;
+            selectedShell = 0;
         }
-        UpdateShell(selectedOption);
+        UpdateShell(selectedShell);
         Save();
     }
     public void BackOption()
     {
-        selectedOption--;
+        selectedShell--;
 
-        if(selectedOption <0)
+        if(selectedShell <0)
         {
-            selectedOption = shellDB.CharacterCount - 1;
+            selectedShell = shellDB.CharacterCount - 1;
         }
-        UpdateShell(selectedOption);
+        UpdateShell(selectedShell);
         Save(); 
     }
-    private void UpdateShell(int selectedOption)
+    private void UpdateShell(int selectedShell)
     {
-        Shells shells = shellDB.GetCharacter(selectedOption);
+        Shells shells = shellDB.GetCharacter(selectedShell);
         artworkSprite.sprite = shells.shellSprite;
-        nameText.text = shells.shellName;
+        // nameText.text = shells.shellName;
     }
     private void Load()
     {
-        selectedOption = PlayerPrefs.GetInt("selectedOption");
+        selectedShell = PlayerPrefs.GetInt("selectedShell");
     }
     private void Save()
     {
-        PlayerPrefs.SetInt("selectedOption", selectedOption);
+        PlayerPrefs.SetInt("selectedShell", selectedShell);
     }
     public void ChangeScene(int sceneID)
     {
