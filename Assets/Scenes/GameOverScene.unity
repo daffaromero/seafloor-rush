@@ -734,7 +734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -410, y: 167.26599}
+  m_AnchoredPosition: {x: -410, y: 167.26602}
   m_SizeDelta: {x: 800, y: 933.0592}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &789483681
@@ -2082,7 +2082,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2051571203}
   - component: {fileID: 2051571202}
-  - component: {fileID: 2051571201}
+  - component: {fileID: 2051571204}
   - component: {fileID: 2051571200}
   m_Layer: 8
   m_Name: Background
@@ -2136,18 +2136,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1080, y: 4320}
   m_EdgeRadius: 0
---- !u!114 &2051571201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2051571199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c140501b8588c2148a64dc30e9ecb391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2051571202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2179,6 +2167,18 @@ Transform:
   - {fileID: 885485659}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2051571204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051571199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65057efc6617b784497398c440dc2145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2060765750
 GameObject:
   m_ObjectHideFlags: 0

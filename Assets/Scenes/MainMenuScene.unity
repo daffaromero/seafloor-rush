@@ -1304,7 +1304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1309589908}
   - component: {fileID: 1309589907}
-  - component: {fileID: 1309589906}
+  - component: {fileID: 1309589909}
   - component: {fileID: 1309589905}
   m_Layer: 8
   m_Name: Background
@@ -1358,18 +1358,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1080, y: 4320}
   m_EdgeRadius: 0
---- !u!114 &1309589906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309589904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c140501b8588c2148a64dc30e9ecb391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1309589907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1401,6 +1389,18 @@ Transform:
   - {fileID: 640747100}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1309589909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309589904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65057efc6617b784497398c440dc2145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1339212366
 GameObject:
   m_ObjectHideFlags: 0
