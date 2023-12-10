@@ -12,7 +12,6 @@ public class PauseManager : MonoBehaviour
     {
         PausePanel.SetActive(true);
         Time.timeScale = 0;
-
     }
 
     // You can call this method from a UI button's OnClick event

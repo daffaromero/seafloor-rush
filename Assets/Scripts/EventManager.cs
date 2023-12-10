@@ -7,6 +7,17 @@ public class EventManager : MonoBehaviour
 {
     private static EventManager instance;
 
+    public static EventManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                Debug.LogError("EventManager instance is null. Cannot trigger game over.");
+            }
+            return instance;
+        }
+    }
     private void Awake()
     {
         if (instance == null)
@@ -26,14 +37,4 @@ public class EventManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverScene");
     }
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

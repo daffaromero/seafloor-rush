@@ -9,6 +9,7 @@ TagManager:
   - Shredder
   - Audio
   - Shells
+  - Pause
   layers:
   - Default
   - TransparentFX

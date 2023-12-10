@@ -8,25 +8,21 @@ using System.Linq;
 
 public class LogicScript : MonoBehaviour
 {
+    public GameObject PausePanel;
     [SerializeField] TextMeshProUGUI predatorsKilled;
     [SerializeField] TextMeshProUGUI highScoreText;
     List<Predator> predators = new List<Predator>();
 
     #region Singleton
     private static LogicScript instance;
+
     public static LogicScript Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<LogicScript>();
-                if (instance == null)
-                {
-                    GameObject obj = new GameObject();
-                    obj.name = "LogicScript";
-                    instance = obj.AddComponent<LogicScript>();
-                }
+                Debug.LogError("LogicScript instance is null. Cannot update score.");
             }
             return instance;
         }
@@ -39,9 +35,11 @@ public class LogicScript : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else if (instance != this)
         {
-            Destroy(gameObject);
+            Destroy(instance.gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
         if (PlayerPrefs.GetInt("HighScore") == 0)
@@ -55,8 +53,8 @@ public class LogicScript : MonoBehaviour
 
     public float playerScore = 0f;
     public float currentRoundScore = 0f;
-
     public int scoreRound;
+
     private int predatorKillCount = 0;
     public bool inGameOverState = false;
     public GameObject tutorialScreen;
@@ -66,8 +64,9 @@ public class LogicScript : MonoBehaviour
 
     public int GetXpAmount()
     {
-        return xpAmount;
+        return PlayerPrefs.GetInt("XpGain", 0);
     }
+
     public string addScore()
     {
         if (!inGameOverState)
@@ -75,9 +74,7 @@ public class LogicScript : MonoBehaviour
             currentRoundScore += Time.deltaTime;
             playerScore = currentRoundScore;
             scoreRound = (predatorKillCount * 10) + Mathf.RoundToInt(playerScore);
-
             CheckHighScore();
-            xpAmount = scoreRound;
         }
 
         return scoreRound.ToString();
@@ -85,6 +82,9 @@ public class LogicScript : MonoBehaviour
 
     public string CheckHighScore()
     {
+        // xpAmount = scoreRound;
+        // PlayerPrefs.SetInt("XpGain", xpAmount);
+
         if (scoreRound > PlayerPrefs.GetInt("HighScore", 0))
         {
             PlayerPrefs.SetInt("HighScore", scoreRound);
@@ -93,6 +93,7 @@ public class LogicScript : MonoBehaviour
 
         return PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
+
 
     // Safeguarding against null reference exceptions
     private void OnEnable()
@@ -122,8 +123,16 @@ public class LogicScript : MonoBehaviour
 
     public void UpdatePredatorKillCount()
     {
-        predatorsKilled.text = predatorKillCount.ToString();
+        if (predatorsKilled != null)
+        {
+            predatorsKilled.text = predatorKillCount.ToString();
+        }
+        else
+        {
+            Debug.LogError("predatorsKilled is null in UpdatePredatorKillCount.");
+        }
     }
+
 
     public void ActivateTutorial()
     {
@@ -137,10 +146,32 @@ public class LogicScript : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void PauseGame()
+    {
+        PausePanel.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        PausePanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
     public void RestartGame()
     {
+        ResetGame();
+        SceneManager.LoadScene("GameplayScene");
+
+    }
+
+    public void ResetGame()
+    {
         Time.timeScale = 1;
-        playerScore = 0;
+        currentRoundScore = 0f;
+        playerScore = 0f;
+        predatorKillCount = 0;
+        xpAmount = 0;
         inGameOverState = false;
     }
 }

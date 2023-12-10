@@ -6,6 +6,20 @@ using TMPro;
 
 public class LogicGOScript : MonoBehaviour
 {
+    public static LogicGOScript Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     LogicScript ls;
     XpManager xpM;
     [SerializeField] private TextMeshProUGUI scoreUI;
@@ -15,20 +29,17 @@ public class LogicGOScript : MonoBehaviour
     void Start()
     {
         ls = LogicScript.Instance;
-        xpM = XpManager.Instance;
 
         if (ls == null)
         {
-            Debug.LogError("LogicScript instance is not properly initialized.");
+            Debug.LogError("LogicScript instance is null. Cannot update score.");
         }
-        if (xpM == null)
-        {
-            Debug.LogError("XpManager instance is not properly initialized.");
-        }
+        xpM = XpManager.Instance;
 
         gameOver();
         scoreUI.text = ls.addScore();
 
+        Debug.Log(ls.addScore());
     }
 
     public void UpdateHighScoreText()
@@ -49,12 +60,17 @@ public class LogicGOScript : MonoBehaviour
         }
     }
 
-    public void restartGame()
+    public void RestartGame()
     {
-        Time.timeScale = 1;
-        ls.playerScore = 0;
-        ls.inGameOverState = false;
-        LoadScene("GameplayScene");
+        if (ls != null)
+        {
+            ls.RestartGame();
+            LoadScene("GameplayScene");
+        }
+        else
+        {
+            Debug.LogError("LogicScript instance is null. Cannot restart game.");
+        }
     }
 
     public void gameOver()
@@ -63,9 +79,6 @@ public class LogicGOScript : MonoBehaviour
         gameOverText.text = $"{PlayerPrefs.GetString("user_name", "Player 1")} Died :(";
         UpdateHighScoreText();
         UpdateXpGained();
-        // xpM.AddXp(ls.GetXpAmount());
-        // Debug.Log("XP added: " + ls.GetXpAmount());
-
     }
 
     public void LoadScene(string sceneName)

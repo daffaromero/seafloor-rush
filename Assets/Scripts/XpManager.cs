@@ -34,22 +34,25 @@ public class XpManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else if (instance != this)
         {
-            Destroy(gameObject);
+            Destroy(instance.gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
     #endregion
 
+    public int TotalXp { get; private set; } = 0;
+
     public void AddXp(int amount)
     {
+        TotalXp += amount;
         OnXpChange?.Invoke(amount);
+
+        // Update PlayerPrefs
+        PlayerPrefs.SetInt("totalXp", TotalXp);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

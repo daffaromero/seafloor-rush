@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float _speed = 600f;
     public LogicScript logic;
-    public LogicGOScript lgo;
     public bool isAlive = true;
     public float minX;
     public float maxX;
@@ -49,21 +48,17 @@ public class PlayerController : MonoBehaviour
         gameOverScreen.SetActive(true);
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(0.2f);
-
-        EventManager eventManager = FindObjectOfType<EventManager>();
-        if (eventManager != null)
-        {
-            // Debug.Log("Triggering Game Over!");
-            eventManager.TriggerGameOver();
-        }
+        EventManager.Instance.TriggerGameOver();
+        isAlive = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // If collided object is not on Layer 8
-        if (collision.gameObject.layer != 8)
+        if (collision.gameObject.layer == 8)
         {
-            StartCoroutine(GameOverCoroutine());
+            return;
         }
+        StartCoroutine(GameOverCoroutine());
     }
 }
