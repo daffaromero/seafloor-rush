@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthbarScript : MonoBehaviour
+public class PlayerLevelBar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
-    public void UpdateHealthBar(float currentValue, float maxValue)
+    public void UpdateXpBar(float currentValue, float maxValue)
     {
         slider.value = currentValue / maxValue;
     }
