@@ -14,6 +14,7 @@ public class RepeatBackground : MonoBehaviour
         startPos = transform.position;
         colliderHeight = GetComponent<BoxCollider2D>().size.y;
         repeatHeight = 4320 + colliderHeight;
+        continuePos = startPos;
         continuePos.y = startPos.y - colliderHeight;
     }
 
