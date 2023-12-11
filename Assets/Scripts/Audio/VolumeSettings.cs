@@ -12,7 +12,7 @@ public class VolumeSettings : MonoBehaviour
 
     void Start()
     {
-        knob = volumeSlider.transform.Find("knob");
+        knob = volumeSlider.transform.Find("Handle");
 
         if (!PlayerPrefs.HasKey("musicVolume"))
         {
