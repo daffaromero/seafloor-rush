@@ -89,6 +89,8 @@ public class PlayerLevel : MonoBehaviour
     {
         displayXP.text = totalXp.ToString() + "/" + maxXp.ToString(); // Update the XP Progress
         Debug.Log(displayXP.text);
+        PlayerLevelBar playerLevelBar = GetComponent<PlayerLevelBar>();
+        playerLevelBar.UpdateXpBar(totalXp, maxXp);
     }
 
     private int CalculateMaxXp(int level)
