@@ -7,5 +7,7 @@ public class Character
 {
     public string characterName;
     public Sprite characterSprite;
-    public bool characterIsUnlcoked;
+    public Sprite lockedSprite;
+    public bool characterIsUnlocked;
+    public int unlockLevel;
 }

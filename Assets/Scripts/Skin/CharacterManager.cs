@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,57 +11,117 @@ public class CharacterManager : MonoBehaviour
 
     public Text nameText;
     public SpriteRenderer artworkSprite;
-
+    private int viewedOption = 0;
     private int selectedOption = 0;
+    private int prevSelectedUnlockedChar = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        if(!PlayerPrefs.HasKey("selectedOption"))
+        if (!PlayerPrefs.HasKey("selectedOption"))
         {
+            viewedOption = 0;
             selectedOption = 0;
+            prevSelectedUnlockedChar = 0;
         }
         else
         {
             Load();
+            viewedOption = selectedOption;
+            prevSelectedUnlockedChar = selectedOption;
         }
         UpdateCharacter(selectedOption);
     }
+
     public void NextOption()
     {
-        selectedOption++;
+        viewedOption++;
 
-        if(selectedOption >= characterDB.CharacterCount)
-        {
-            selectedOption = 0;
-        }
-        UpdateCharacter(selectedOption);
+        LoopOption();
+        CheckAndUpdate();
         Save();
     }
+
     public void BackOption()
     {
-        selectedOption--;
+        viewedOption--;
 
-        if(selectedOption <0)
-        {
-            selectedOption = characterDB.CharacterCount - 1;
-        }
-        UpdateCharacter(selectedOption);
-        Save(); 
+        LoopOption();
+        CheckAndUpdate();
+        Save();
     }
-    private void UpdateCharacter(int selectedOption)
+
+    private void LoopOption()
     {
-        Character character = characterDB.GetCharacter(selectedOption);
-        artworkSprite.sprite = character.characterSprite;
-        nameText.text = character.characterName;
+        if (viewedOption >= characterDB.CharacterCount)
+        {
+            viewedOption = 0;
+        }
+        else if (viewedOption < 0)
+        {
+            viewedOption = characterDB.CharacterCount - 1;
+        }
     }
+
+    private void CheckAndUpdate()
+    {
+        if (!IsCharacterUnlocked(viewedOption))
+        {
+            UpdateCharacter(viewedOption);
+            selectedOption = prevSelectedUnlockedChar;
+        }
+        else
+        {
+            UpdateCharacter(viewedOption);
+            prevSelectedUnlockedChar = viewedOption;
+            selectedOption = viewedOption;
+        }
+    }
+
+    private bool IsCharacterUnlocked(int characterIndex)
+    {
+        Character character = characterDB.GetCharacter(characterIndex);
+        bool isUnlocked = character.characterIsUnlocked;
+
+        if (isUnlocked)
+        {
+            Debug.Log($"Character {characterIndex} with name {character.characterName} is unlocked");
+            prevSelectedUnlockedChar = characterIndex;
+        }
+        else
+        {
+            Debug.Log($"Character {characterIndex} with name {character.characterName} is locked");
+        }
+
+        return isUnlocked;
+    }
+
+    private void UpdateCharacter(int viewedOption)
+    {
+        Character character = characterDB.GetCharacter(viewedOption);
+
+        if (IsCharacterUnlocked(viewedOption))
+        {
+            artworkSprite.sprite = character.characterSprite;
+            nameText.text = character.characterName;
+        }
+        else
+        {
+            artworkSprite.sprite = character.lockedSprite;
+            nameText.text = "Locked";
+        }
+    }
+
     private void Load()
     {
         selectedOption = PlayerPrefs.GetInt("selectedOption");
     }
+
     private void Save()
     {
         PlayerPrefs.SetInt("selectedOption", selectedOption);
     }
+
     public void ChangeScene(int sceneID)
     {
         SceneManager.LoadScene(sceneID);
