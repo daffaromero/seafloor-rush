@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,7 +10,7 @@ public class CharacterManager : MonoBehaviour
 {
     public CharacterDatabase characterDB;
 
-    public Text nameText;
+    public TextMeshProUGUI nameText;
     public SpriteRenderer artworkSprite;
     private int viewedOption = 0;
     private int selectedOption = 0;
@@ -108,7 +109,7 @@ public class CharacterManager : MonoBehaviour
         else
         {
             artworkSprite.sprite = character.lockedSprite;
-            nameText.text = "Locked";
+            nameText.text = $"Reach level {character.unlockLevel} to unlock";
         }
     }
 
