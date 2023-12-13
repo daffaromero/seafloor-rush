@@ -86,13 +86,13 @@ public class CharacterManager : MonoBehaviour
 
         if (isUnlocked)
         {
-            Debug.Log($"Character {characterIndex} with name {character.characterName} is unlocked");
+            // Debug.Log($"Character {characterIndex} with name {character.characterName} is unlocked");
             prevSelectedUnlockedChar = characterIndex;
         }
-        else
-        {
-            Debug.Log($"Character {characterIndex} with name {character.characterName} is locked");
-        }
+        // else
+        // {
+        //     Debug.Log($"Character {characterIndex} with name {character.characterName} is locked");
+        // }
 
         return isUnlocked;
     }

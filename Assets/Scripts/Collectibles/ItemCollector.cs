@@ -12,7 +12,7 @@ public class ItemCollector : MonoBehaviour
         {
             Destroy(gameObject);
             shells++;
-            Debug.Log("Shells :" + shells);
+            // Debug.Log("Shells :" + shells);
         }
     }
 }

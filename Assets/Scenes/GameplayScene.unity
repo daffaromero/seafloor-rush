@@ -257,6 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b35f9bc988a5944458cc3ca49e75359f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayLevel: {fileID: 0}
+  displayXP: {fileID: 0}
 --- !u!114 &112883332 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3367195574224964764, guid: 860d5fa4e68d345679839df90416e86f, type: 3}
@@ -1755,7 +1757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e293d778f9348c38fab36656220ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 60
+  duration: 80
   gradient:
     serializedVersion: 2
     key0: {r: 0.21176471, g: 0.46666667, b: 0.73333335, a: 1}
@@ -4670,7 +4672,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5213,6 +5215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b35f9bc988a5944458cc3ca49e75359f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayLevel: {fileID: 0}
+  displayXP: {fileID: 0}
 --- !u!61 &7483307466353820421
 BoxCollider2D:
   m_ObjectHideFlags: 0

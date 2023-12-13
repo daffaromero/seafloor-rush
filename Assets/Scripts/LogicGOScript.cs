@@ -39,7 +39,7 @@ public class LogicGOScript : MonoBehaviour
         scoreUI.text = ls.addScore();
         gameOver();
 
-        Debug.Log(ls.addScore());
+        // Debug.Log(ls.addScore());
     }
 
     public void UpdateHighScoreText()

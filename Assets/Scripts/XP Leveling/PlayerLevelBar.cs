@@ -9,17 +9,29 @@ using Unity.VisualScripting;
 public class PlayerLevelBar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
-    public int totalXp;
-    public int maxXp;
-    public Image mask;
-    void Update()
+    int totalXp, maxXp, currentLevel;
+
+    void Start()
     {
+        LoadPlayerData();
         UpdateXpBar(totalXp, maxXp);
     }
 
-    public void UpdateXpBar(float currentValue, float maxValue)
+    public void LoadPlayerData()
     {
-        float fillAmount = (float)currentValue / (float)maxValue;
-        mask.fillAmount = fillAmount;
+        totalXp = PlayerPrefs.GetInt("totalXp", 0);
+        maxXp = PlayerPrefs.GetInt("maxXp", CalculateMaxXp(currentLevel));
+        currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
+    }
+
+    private int CalculateMaxXp(int level)
+    {
+        return level * 100 + 75;
+    }
+
+    public void UpdateXpBar(int currentValue, int maxValue)
+    {
+        slider.value = (float)currentValue / (float)maxValue;
+        // Debug.Log(slider.value);
     }
 }

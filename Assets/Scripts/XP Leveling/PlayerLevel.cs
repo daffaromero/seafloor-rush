@@ -40,7 +40,7 @@ public class PlayerLevel : MonoBehaviour
 
         if (totalXp >= maxXp)
         {
-            Debug.Log("Level up!");
+            // Debug.Log("Level up!");
             LevelUp();
         }
 
@@ -78,7 +78,7 @@ public class PlayerLevel : MonoBehaviour
         UpdateDisplayLevel(); // Update the displayed level when loading player data
         UpdateDisplayXP();
 
-        Debug.Log($"totalXp: {totalXp}, maxXp: {maxXp}, currentLevel: {currentLevel}");
+        // Debug.Log($"totalXp: {totalXp}, maxXp: {maxXp}, currentLevel: {currentLevel}");
     }
 
     private void UpdateDisplayLevel()
@@ -88,7 +88,8 @@ public class PlayerLevel : MonoBehaviour
     private void UpdateDisplayXP()
     {
         displayXP.text = totalXp.ToString() + "/" + maxXp.ToString(); // Update the XP Progress
-        Debug.Log(displayXP.text);
+        // Debug.Log(displayXP.text);
+        
         PlayerLevelBar playerLevelBar = GetComponent<PlayerLevelBar>();
         playerLevelBar.UpdateXpBar(totalXp, maxXp);
     }

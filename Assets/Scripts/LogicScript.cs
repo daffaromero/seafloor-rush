@@ -63,7 +63,7 @@ public class LogicScript : MonoBehaviour
 
     public int GetXpAmountPerGame()
     {
-        Debug.Log("XpGain: " + PlayerPrefs.GetInt("XpGain", 0));
+        // Debug.Log("XpGain: " + PlayerPrefs.GetInt("XpGain", 0));
         return PlayerPrefs.GetInt("XpGain", 0);
     }
 

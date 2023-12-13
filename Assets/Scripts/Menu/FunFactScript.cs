@@ -28,7 +28,7 @@ public class FunFactScript : MonoBehaviour
         if (Prompts.Count > 0)
         {
             var RandomX = UnityEngine.Random.Range(0, Prompts.Count);
-            Debug.Log(Prompts[RandomX]);
+            // Debug.Log(Prompts[RandomX]);
             FunFactText.text = Prompts[RandomX];
         }
     }
