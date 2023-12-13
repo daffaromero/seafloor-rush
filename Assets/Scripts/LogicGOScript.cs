@@ -36,9 +36,8 @@ public class LogicGOScript : MonoBehaviour
         }
 
         xpM = XpManager.Instance;
-
-        gameOver();
         scoreUI.text = ls.addScore();
+        gameOver();
 
         Debug.Log(ls.addScore());
     }
@@ -78,6 +77,7 @@ public class LogicGOScript : MonoBehaviour
     {
         ls.inGameOverState = true;
         gameOverText.text = $"{PlayerPrefs.GetString("user_name", "Player 1")} Died :(";
+        scoreUI.text = ls.addScore();
         UpdateHighScoreText();
         UpdateXpGained();
     }
